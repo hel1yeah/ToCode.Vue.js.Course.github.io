@@ -16,13 +16,16 @@
   
   <div id="app">
     <h1> {{title}} </h1>
+    <input v-model="text" type="text">
+    <p> {{text}} </p>
   </div>
 
   <script>
   let app = new Vue({
     el: '#app',
     data:{
-      title: 'Vue Init'
+      title: 'Inputs',
+      text: '',
     }
   })
   </script>
