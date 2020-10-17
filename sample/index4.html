@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/vue"></script>
+  <title>Vue</title>
+</head>
+<body>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif ;
+    }
+  </style>
+  
+  <div id="app">
+    <h1> {{title}} </h1>
+    <input v-model="text" type="text">
+    <!-- <button @click="getLowerText">get lower text</button> -->
+    <!-- <p> {{textlower}} </p> -->
+    <p> {{toLower}} </p>
+  </div>
+
+  <script>
+  let app = new Vue({
+    el: '#app',
+    data:{
+      title: 'Methods',
+      text: '',
+      textlower: '',
+    },
+    computed: {
+      toLower(){
+        return this.text.toLowerCase();
+      }
+    },
+    methods: {
+      getLowerText(){
+        this.textlower = this.text.toLowerCase();
+      }
+    },
+  })
+  </script>
+  
+</body>
+</html>
