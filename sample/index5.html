@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/vue"></script>
+  <title>Vue</title>
+</head>
+<body>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif ;
+    }
+  </style>
+  
+  <div id="app">
+    <h1> {{title}} </h1>
+    <button @click="getContent">showContent</button>
+    <div v-if="showContent"><p>test content</p></div>
+  </div>
+
+  <script>
+  let app = new Vue({
+    el: '#app',
+    data:{
+      title: 'v-if',
+      showContent: false
+    },
+    methods: {
+      getContent(){
+        this.showContent = !this.showContent;
+      }
+    },
+  })
+  </script>
+  
+</body>
+</html>
