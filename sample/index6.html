@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/vue"></script>
+  <title>Vue</title>
+</head>
+<body>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif ;
+    }
+  </style>
+  
+  <div id="app">
+    <h1> {{title}} </h1>
+    <button @click="getContent">showContent</button>
+    <div v-if="showContent">
+      <p>test content</p>    <p> Users: </p>
+       <ul>
+      <li v-for="(user, index) in users" :key="index"><p>
+        index: {{index}}, name: {{user.name}}, email: {{user.email}}, ege: {{user.ege}}}
+      </p></li>
+    </ul>
+    </div>
+
+   
+  </div>
+
+  <script>
+  let app = new Vue({
+    el: '#app',
+    data:{
+      title: 'v-if',
+      showContent: true,
+      // user:{
+      //   name: 'Jack',
+      //   email: 'email@email.com'
+      // },
+      users: [
+        {name: 'god', email: 'red@ukr.net', ege: 25},
+        {name: 'jesus', email: 'jesus@ukr.net', ege: 25},
+        {name: 'aid', email: 'aid@ukr.net', ege: 25},
+        {name: 'doberman', email: 'doberman@ukr.net', ege: 25},
+      ]
+      
+    },
+    methods: {
+      getContent(){
+        this.showContent = !this.showContent;
+        console.log(this.users);
+      }
+    },
+  })
+  </script>
+  
+</body>
+</html>
