@@ -4,15 +4,16 @@
       <section>
         <div class="container">
           <h1>{{ title }}</h1>
-          <div class="messag" v-if="message">
-            <p>{{ message }}</p>
-          </div>
+
+          <message v-if="message" :message="message" />
+
           <!-- new not -->
           <div class="new-note">
             <input v-model="note.title" type="text" />
             <textarea v-model="note.descr"></textarea>
             <button @click="addNote">addNote</button>
           </div>
+
           <!-- note list -->
           <div class="notes">
             <div class="note" v-for="(note, index) in notes" :key="index">
@@ -34,7 +35,11 @@
 </template>
 
 <script>
+import message from '@/components/Message.vue'
 export default {
+  components:{
+    message,
+  },
   data() {
     return {
       title: "Notes App",
@@ -64,18 +69,18 @@ export default {
   },
   methods: {
     addNote() {
-      // console.log(this.note);
       let { title, descr } = this.note;
       if (title === "") {
         this.message = "false error, note found title";
         return false;
-      } else {
+      } 
+        this.message = "";
         this.notes.push({
           title,
           descr,
           date: new Date(Date.now()).toLocaleTimeString(),
         });
-      }
+      
       this.note.title = "";
       this.note.descr = "";
       this.note.message = null;
