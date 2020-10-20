@@ -1,6 +1,6 @@
-// тк мы к ним обращаемся везде ниже
-@import "utils/vars";
-@import "utils/reset";
+// тaк мы к ним обращаемся везде ниже
+@import "utils/vars.scss";
+@import "utils/reset.scss";
 
 html {
   line-height: $mainLineHeight;
