@@ -15,18 +15,12 @@ export default {
 };
 </script>
 
-// <style lang="scss" scoped>
-//   p{
-//     color: red;
-//   }
-// </style>
-    
-
 <style lang="css" scoped="">
   .message{
     color: red;
   }
 </style>
+
     
     
     
