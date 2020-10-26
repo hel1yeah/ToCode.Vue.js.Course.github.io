@@ -5,6 +5,7 @@
         <p>
           {{ note.title }}
         </p>
+        <p span style="cursor: pointer; color: red; matgin-left: auto;" @click="removeNote(index)">x</p>
       </div>
       <div class="note-body">
         <p>{{ note.descr }}</p>
@@ -20,40 +21,50 @@ export default {
     notes: {
       type: Array,
       required: true,
-    }
-  }
-}
+    },
+  },
+  methods: {
+    removeNote(index) {
+      console.log(`Note id - ${index} removed`);
+      this.$emit('remove', index)
+    },
+  },
+};
 </script>
 
 <style lang="scss">
-  .notes {
+.notes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 40px 0;
+  transition: All 1s;
+}
+.note {
+  width: 46%;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px 1px rgba(77, 74, 77, 1);
+  &-header {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 40px 0;
-  }
-  .note{
-    width: 46%;
-    padding: 18px 20px;
-    margin-bottom: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px 1px rgba(77,74,77,1);
-    &-header {
-      p {
-        color: rgb(128, 6, 228);
-      }
-    }
-    &-body{
-      p {
-        margin: 20px 0;
-        font-size: 22px;
-      }
-      span {
-        font-size: 14px;
-        color: #999;
-      }
+  align-items: center;
+  justify-content: space-between;
+    p {
+      color: rgb(128, 6, 228);
     }
   }
+  &-body {
+    p {
+      margin: 20px 0;
+      font-size: 22px;
+    }
+    span {
+      font-size: 14px;
+      color: #999;
+    }
+  }
+}
 </style>
