@@ -24,11 +24,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.notes .note{
-  border: 1px solid red;
-  color: red;
-}
+<style lang="scss">
 .new-note{
   text-align: center;
   & .btn{

@@ -9,15 +9,16 @@ export default {
   props: {
     message: {
       type: String,
-      required: true,
+      required: 'False Error, Note Found Title',
     },
   },
 };
 </script>
 
-<style lang="css" scoped="">
+<style lang="css" scoped>
   .message{
     color: red;
+    text-align: center;
   }
 </style>
 
