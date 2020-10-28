@@ -1,11 +1,22 @@
 <template>
   <div class="notes">
-    <div class="note" v-for="(note, index) in notes" :key="index">
-      <div class="note-header">
+    <div
+      class="note"
+      :class="{ full: !grid }"
+      v-for="(note, index) in notes"
+      :key="index"
+    >
+      <div class="note-header" :class="{ full: !grid }">
         <p>
           {{ note.title }}
         </p>
-        <p span style="cursor: pointer; color: red; matgin-left: auto;" @click="removeNote(index)">x</p>
+        <p
+          span
+          style="cursor: pointer; color: red; matgin-left: auto"
+          @click="removeNote(index)"
+        >
+          x
+        </p>
       </div>
       <div class="note-body">
         <p>{{ note.descr }}</p>
@@ -22,11 +33,15 @@ export default {
       type: Array,
       required: true,
     },
+    grid: {
+      type: Boolean,
+      required: true,
+    },
   },
   methods: {
     removeNote(index) {
-      console.log(`Note id - ${index} removed`);
-      this.$emit('remove', index)
+      // console.log(`Note id - ${index} removed`);
+      this.$emit("remove", index);
     },
   },
 };
@@ -47,13 +62,49 @@ export default {
   margin-bottom: 20px;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0px 0px 15px 1px rgba(77, 74, 77, 1);
+  box-shadow: 0px 0px 15px 1px rgba(77, 74, 77, 0.2);
+  transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+  &:hover {
+    transform: translate(0, -6px);
+    transition-delay: 0s;
+  }
+  &.full {
+    width: 100%;
+    text-align: center;
+  }
   &-header {
     display: flex;
-  align-items: center;
-  justify-content: space-between;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    h1 {
+      font-size: 32px;
+    }
     p {
       color: rgb(128, 6, 228);
+    }
+    & .icons {
+      & svg {
+        margin-right: 15px;
+        color: #999;
+        cursor: pointer;
+        &.active {
+          color: rgb(128, 6, 228);
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    &.full {
+      justify-content: center;
+      p {
+        margin-right: 20px;
+        &:last-child {
+        margin-right: 0;
+      }
+      }
+      
     }
   }
   &-body {
