@@ -4,20 +4,22 @@
       <section>
         <div class="container">
           <!-- Компонент Тайтл -->
-          <titleNote :titleNote="titleNote" title="Название приложения" />
+          <titleNote 
+          :titleNote="titleNote" 
+          title="Название приложения" />
           
           <!-- Компонент меседж ерор -->
-          <message v-if="message" :message="message" />
+          <message 
+          v-if="message" 
+          :message="message" />
 
-          <!-- new not -->
-          <div class="new-note">
-            <input v-model="note.titleNote" type="text" />
-            <textarea v-model="note.descr"></textarea>
-            <button @click="addNote">addNote</button>
-          </div>
-
+          <!-- Компонент  newNote -->
+          <newNote 
+          :note="note" 
+          @componentsMetodsAddNode="addNote"
+          />
           <!-- note list -->
-          
+
           <div class="notes">
             <div class="note" v-for="(note, index) in notes" :key="index">
               <div class="note-header">
@@ -40,10 +42,12 @@
 <script>
 import message from '@/components/Message'
 import titleNote from '@/components/TitleNote'
+import newNote from '@/components/NewNote'
 export default {
   components : {
     message,
     titleNote,
+    newNote,
   },
   data() {
     return {
@@ -55,18 +59,18 @@ export default {
       },
       notes: [
         {
-          titleNote: "First Note",
-          descr: "Description for second note",
+          titleNote: "Первый тестовый заголовок заметки ",
+          descr: "Тестовое описание ",
           date: new Date(Date.now()).toLocaleTimeString(),
         },
         {
-          titleNote: "Second Note",
-          descr: "Description for second note",
+          titleNote: "Второй тестовый заголовок заметки",
+          descr: "Тестовое описание",
           date: new Date(Date.now()).toLocaleTimeString(),
         },
         {
-          titleNote: "Third Note",
-          descr: "Description for second note",
+          titleNote: "Третий тестовый заголовок заметки",
+          descr: "Тестовое описание",
           date: new Date(Date.now()).toLocaleTimeString(),
         },
       ],
