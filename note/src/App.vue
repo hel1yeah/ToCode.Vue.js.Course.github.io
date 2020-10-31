@@ -3,12 +3,11 @@
     <div class="wrapper-content">
       <section>
         <div class="container">
-          <!-- <h1>{{ title }}</h1> -->
 
           <!-- message -->
           <message v-if="message" :message="message" />
 
-          <!-- new not -->
+          <!-- newNot -->
           <newNote :note="note" @addNote="addNote" />
 
           <div class="note-header">
@@ -17,11 +16,11 @@
 
             <search
               :value="search"
-              placeholder="find your note"
+              placeholder="Поиск заметки"
               @search="search = $event"
             />
             <div class="icons">
-              <svg
+              <svg 
                 :class="{ active: grid }"
                 @click="grid = true"
                 xmlns="http://www.w3.org/2000/svg"
@@ -88,18 +87,30 @@ export default {
   },
   data() {
     return {
-      title: "Notes App",
+      title: "Заметки",
       search: "",
+      checked: "",
       message: null,
       grid: true,
       note: {
         title: " ",
         descr: " ",
+        bgc: "",
       },
       notes: [
         {
-          title: "First Note",
-          descr: "Description for second note",
+          title: "Название заметки 1",
+          descr: "Описание ",
+          date: new Date(Date.now()).toLocaleTimeString(),
+        },
+        {
+          title: "Название заметки 2",
+          descr: "Описание ",
+          date: new Date(Date.now()).toLocaleTimeString(),
+        },
+        {
+          title: "Название заметки 3",
+          descr: "Описание ",
           date: new Date(Date.now()).toLocaleTimeString(),
         },
       ],
@@ -124,9 +135,11 @@ export default {
   },
   methods: {
     addNote() {
-      const { title, descr } = this.note;
+      const { title, descr,} = this.note;
+      const checked = this.checked;
+      console.log(checked.value);
       if (!title.trim().length) {
-        this.message = "False Error, Note Found Title";
+        this.message = "Напишите пожалуйста заголовок заметки, без него нельзя создать заметку";
         return false;
       } else {
         this.message = "";
@@ -134,8 +147,10 @@ export default {
           title,
           descr,
           date: new Date(Date.now()).toLocaleTimeString(),
+          bgc: checked,
         });
       }
+
 
       this.note.title = "";
       this.note.descr = "";

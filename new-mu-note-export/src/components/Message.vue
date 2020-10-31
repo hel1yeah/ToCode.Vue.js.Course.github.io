@@ -9,19 +9,16 @@ export default {
   props: {
     message: {
       type: String,
-      required: 'Напишите пожалуйста заголовок заметки, без него нельзя создать заметку.',
+      required: true,
+      default: "default", // сообщение которое сработает если мы не передадим required
     },
   },
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
   .message{
-    color: red;
     text-align: center;
+    color: firebrick;
   }
 </style>
-
-    
-    
-    

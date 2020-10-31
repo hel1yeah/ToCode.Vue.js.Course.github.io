@@ -22,6 +22,7 @@
         <p>{{ note.descr }}</p>
         <span>{{ note.date }}</span>
       </div>
+      <span>{{note.bgc}}</span>
     </div>
   </div>
 </template>
