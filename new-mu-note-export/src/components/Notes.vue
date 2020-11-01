@@ -1,10 +1,13 @@
 <template>
-  <div class="notes">
-    <div class="note" v-for="(note, index) in notes" :key="index">
-      <div class="note-header">
+
+  <div class="notes" >
+  
+    <div class="note" :class="{full : !grid}" v-for="(note, index) in notes" :key="index">
+      <div class="note-header" :class="{full : !grid}">
         <p>
           {{ note.titleNote }}
         </p>
+        <p style="cursor: pointer; color: red" @click="removeNote(index)">X</p>
       </div>
       <div class="note-body">
         <p>{{ note.descr }}</p>
@@ -21,9 +24,17 @@ export default {
       type: Array,
       required: true,
     },
+    grid: {
+      type: Boolean,
+      required: true,
+    },
   },
-  
-}
+  methods: {
+    removeNote(index) {
+      this.$emit("remove", index);
+    },
+  },
+};
 </script>
 
 <style lang="scss">
@@ -49,7 +60,7 @@ export default {
   }
   &.full {
     width: 100%;
-    text-align: center;
+
   }
   &-header {
     display: flex;
@@ -77,13 +88,13 @@ export default {
     }
     &.full {
       justify-content: center;
+      text-align: center;
       p {
         margin-right: 20px;
         &:last-child {
-        margin-right: 0;
+          margin-right: 0;
+        }
       }
-      }
-      
     }
   }
   &-body {

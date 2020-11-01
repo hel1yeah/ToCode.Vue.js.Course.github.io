@@ -3,29 +3,20 @@
     <div class="wrapper-content">
       <section>
         <div class="container">
-          <!-- Компонент Тайтл (просто тайтл) -->
-          <titleNote 
-          :titleNote="titleNote" 
-          title="Название приложения" />
-          
           <!-- Компонент меседж ерор (выводит сообщение об ошибке ) -->
-          <message 
-          v-if="message" 
-          :message="message" />
+          <message v-if="message" :message="message" />
 
           <!-- Компонент  newNote (создаёт новую заметку) -->
-          <newNote 
-          :note="note" 
-          @componentsMetodsAddNode="addNote"
+          <newNote :note="note" @componentsMetodsAddNode="addNote" />
+          <!-- Компонент Тайтл (просто тайтл) -->
+          <titleNote
+            :titleNote="titleNote"
+            title="Название приложения"
+            :grid="grid"
+            @gridTest="grid = $event"
           />
-
           <!-- note list -->
-          <notes
-          :notes="notes"
-          
-          />
-
-          
+          <notes :notes="notes" @remove="removeNotes" :grid="grid" />
         </div>
       </section>
     </div>
@@ -33,12 +24,12 @@
 </template>
 
 <script>
-import message from '@/components/Message'
-import titleNote from '@/components/TitleNote'
-import newNote from '@/components/NewNote'
-import notes from '@/components/Notes'
+import message from "@/components/Message";
+import titleNote from "@/components/TitleNote";
+import newNote from "@/components/NewNote";
+import notes from "@/components/Notes";
 export default {
-  components : {
+  components: {
     message,
     titleNote,
     newNote,
@@ -48,6 +39,7 @@ export default {
     return {
       titleNote: "Приложение на Vue.js для заметок",
       message: null,
+      grid: true,
       note: {
         titleNote: "",
         descr: "",
@@ -76,7 +68,8 @@ export default {
       // console.log(this.note);
       let { titleNote, descr } = this.note;
       if (titleNote.trim().length === 0) {
-        this.message = "Произошла ошибка, Вы не указали заголовок. Без загловка нельзя создать заметку!!!";
+        this.message =
+          "Произошла ошибка, Вы не указали заголовок. Без загловка нельзя создать заметку!!!";
         return false;
       } else {
         this.notes.push({
@@ -88,6 +81,9 @@ export default {
       this.note.titleNote = "";
       this.note.descr = "";
       this.note.message = null;
+    },
+    removeNotes(index) {
+      this.notes.splice(index, 1);
     },
   },
 };
