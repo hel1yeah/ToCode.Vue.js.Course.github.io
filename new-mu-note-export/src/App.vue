@@ -3,36 +3,29 @@
     <div class="wrapper-content">
       <section>
         <div class="container">
-          <!-- Компонент Тайтл -->
+          <!-- Компонент Тайтл (просто тайтл) -->
           <titleNote 
           :titleNote="titleNote" 
           title="Название приложения" />
           
-          <!-- Компонент меседж ерор -->
+          <!-- Компонент меседж ерор (выводит сообщение об ошибке ) -->
           <message 
           v-if="message" 
           :message="message" />
 
-          <!-- Компонент  newNote -->
+          <!-- Компонент  newNote (создаёт новую заметку) -->
           <newNote 
           :note="note" 
           @componentsMetodsAddNode="addNote"
           />
-          <!-- note list -->
 
-          <div class="notes">
-            <div class="note" v-for="(note, index) in notes" :key="index">
-              <div class="note-header">
-                <p>
-                  {{ note.titleNote }}
-                </p>
-              </div>
-              <div class="note-body">
-                <p>{{ note.descr }}</p>
-                <span>{{ note.date }}</span>
-              </div>
-            </div>
-          </div>
+          <!-- note list -->
+          <notes
+          :notes="notes"
+          
+          />
+
+          
         </div>
       </section>
     </div>
@@ -43,11 +36,13 @@
 import message from '@/components/Message'
 import titleNote from '@/components/TitleNote'
 import newNote from '@/components/NewNote'
+import notes from '@/components/Notes'
 export default {
   components : {
     message,
     titleNote,
     newNote,
+    notes,
   },
   data() {
     return {
