@@ -1,0 +1,19 @@
+{
+  "name": "Lessons-With-Modals",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.3",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
