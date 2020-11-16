@@ -1,28 +1,23 @@
 <template>
   <div class="notes">
     <div
-      class="note"
-      :class="{ full: !grid }"
+      class="note" 
       v-for="(note, index) in notes"
       :key="index"
+      :class="[note.bgColor, {full: !grid}]"
+      
     >
       <div class="note-header" :class="{ full: !grid }">
-        <p>
-          {{ note.title }}
-        </p>
-        <p
-          span
+        <p>{{ note.title }}</p>
+        <p span
           style="cursor: pointer; color: red; matgin-left: auto"
-          @click="removeNote(index)"
-        >
-          x
-        </p>
+          @click="removeNote(index)">
+          x</p>
       </div>
       <div class="note-body">
         <p>{{ note.descr }}</p>
         <span>{{ note.date }}</span>
       </div>
-      <span>{{note.bgc}}</span>
     </div>
   </div>
 </template>
@@ -65,6 +60,15 @@ export default {
   border-radius: 10px;
   box-shadow: 0px 0px 15px 1px rgba(77, 74, 77, 0.2);
   transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+  &.while {
+    background-color: white;
+  }
+  &.yellow {
+    background-color: yellow;
+  }
+  &.firebrick {
+    background-color: firebrick;
+  }
   &:hover {
     transform: translate(0, -6px);
     transition-delay: 0s;
@@ -102,10 +106,9 @@ export default {
       p {
         margin-right: 20px;
         &:last-child {
-        margin-right: 0;
+          margin-right: 0;
+        }
       }
-      }
-      
     }
   }
   &-body {
@@ -118,5 +121,6 @@ export default {
       color: #999;
     }
   }
+
 }
 </style>

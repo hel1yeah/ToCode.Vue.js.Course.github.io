@@ -63,7 +63,8 @@
 
           <!-- notes list -->
           <notes 
-          :notes="notesFilter" 
+          :notes="notesFilter"
+          :note="note"
           :grid="grid" 
           @remove="removeNotes" />
         </div>
@@ -96,22 +97,26 @@ export default {
         title: " ",
         descr: " ",
         bgc: "",
+        bgColor: "white",
       },
       notes: [
         {
           title: "Название заметки 1",
           descr: "Описание ",
           date: new Date(Date.now()).toLocaleTimeString(),
+          bgColor: "",
         },
         {
           title: "Название заметки 2",
           descr: "Описание ",
           date: new Date(Date.now()).toLocaleTimeString(),
+          bgColor: "",
         },
         {
           title: "Название заметки 3",
           descr: "Описание ",
           date: new Date(Date.now()).toLocaleTimeString(),
+          bgColor: "",
         },
       ],
     };
@@ -135,9 +140,7 @@ export default {
   },
   methods: {
     addNote() {
-      const { title, descr,} = this.note;
-      const checked = this.checked;
-      console.log(checked.value);
+      const { title, descr, bgColor} = this.note;
       if (!title.trim().length) {
         this.message = "Напишите пожалуйста заголовок заметки, без него нельзя создать заметку";
         return false;
@@ -147,7 +150,7 @@ export default {
           title,
           descr,
           date: new Date(Date.now()).toLocaleTimeString(),
-          bgc: checked,
+          bgColor,
         });
       }
 
@@ -155,6 +158,9 @@ export default {
       this.note.title = "";
       this.note.descr = "";
       this.note.message = "";
+      this.note.bgColor = "white";
+      
+
     },
     removeNotes(index) {
       this.notes.splice(index, 1);
