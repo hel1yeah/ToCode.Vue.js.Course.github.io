@@ -64,7 +64,12 @@ section, .section {
   flex-direction: column;
   min-height: 100vh;
   margin: 0 auto;
+  background-image: url('.././logo.png');
+  background-size: auto ;
+  background-position: top left;
+  background-repeat: no-repeat;
 }
+
 
 .wrapper-content {
   display: flex;
