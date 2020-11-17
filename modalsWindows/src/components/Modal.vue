@@ -1,23 +1,28 @@
 <template>
-  <transition name="modal">
+
     <div class="modal__wrapper" >
       <div class="modal-content" >
+
         <div class="modal-header">
           <span class="modal-title"> {{ title }} </span>
-          <span class="button-close">×</span>
+          <span class="button-close" v-on:click="closeModal">×</span>
         </div>
+
         <div class="modal-body">
-          <slot name="body">default body</slot>
+          
         </div>
       </div>
     </div>
-  </transition>
+
 </template>
 
 <script>
 export default {
   props: {
-
+    title: {
+      type: String,
+      required: true,
+    }
   },
   data () {
     return {}
@@ -25,7 +30,11 @@ export default {
   mounted () {
   },
   computed: {},
-  methods: {}
+  methods: {
+    closeModal(){
+      this.$emit('closeModal', event)
+    }
+  }
 }
 </script>
 
@@ -50,8 +59,8 @@ export default {
   top: 0;
   bottom: 0;
   left: 0;
+    right: 0;   
   transition: opacity .2s ease;
-  right: 0;
   z-index: 998;
   background-color: rgba(00,00,00,.48);
 }
