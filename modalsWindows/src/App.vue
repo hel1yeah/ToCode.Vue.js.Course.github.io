@@ -5,14 +5,17 @@
       <section>
         <div class="container">
 
-          <button class="btn btnPrimary" @click="modalFirst = true" >Первое Модальное окно</button>
+          <button class="btn btnPrimary" @click="modalFirst = !modalFirst" >Первое Модальное окно</button>
           <!-- first modal -->
           <modals 
-          title="First modal"
+          title="Первое модальное окно "
           v-if="modalFirst"
           @closeModal="closeModal"
           >
-
+          <div slot="body">
+              <p>Test slot 1</p>
+              <button class="btn btnPrimary" @click="modalFirst = !modalFirst" >Первое Модальное окно</button>
+          </div>
           </modals>
 
         </div>

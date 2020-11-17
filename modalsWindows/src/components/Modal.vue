@@ -1,15 +1,15 @@
 <template>
 
-    <div class="modal__wrapper" >
-      <div class="modal-content" >
+    <div class="modal__wrapper" @click="closeModal" >
+      <div class="modal-content" @click.stop="" >
 
         <div class="modal-header">
           <span class="modal-title"> {{ title }} </span>
-          <span class="button-close" v-on:click="closeModal">×</span>
+          <span class="button-close" @click="closeModal">×</span>
         </div>
 
         <div class="modal-body">
-          
+          <slot name="body"> default body </slot>
         </div>
       </div>
     </div>
@@ -28,6 +28,9 @@ export default {
     return {}
   },
   mounted () {
+    document.body.addEventListener('keydown', event => {
+      event.keyCode === 27 ? this.closeModal(): '';    
+    })
   },
   computed: {},
   methods: {
