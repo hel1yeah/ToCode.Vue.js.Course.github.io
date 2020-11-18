@@ -1,19 +1,21 @@
-<template v-slot:body>
-  <div class="modal__wrapper" @click="closeModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <span class="modal-title"> {{ title }} </span>
-        <span class="button-close" @click="closeModal">×</span>
-      </div>
-      <template >
-        <div class="modal-body">
-          <slot name="body">
-            Стандартное значение для slot в случае ошибки
-          </slot>
+<template>
+  <transition name="firts-anim">
+    <div class="modal__wrapper" @click="closeModal">
+      <div class="modal-content" v-on:click.stop>
+        <div class="modal-header">
+          <span class="modal-title"> {{ title }} </span>
+          <span class="button-close" @click="closeModal">×</span>
         </div>
-      </template>
+        <template>
+          <div class="modal-body">
+            <slot name="body">
+              Стандартное значение для slot в случае ошибки
+            </slot>
+          </div>
+        </template>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -41,7 +43,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 // Animation
 .modal-enter {
   opacity: 0;
@@ -92,9 +94,23 @@ export default {
   }
   .button-close {
     cursor: pointer;
+    color: firebrick;
   }
+}
+.modal__buttons{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
 }
 .modal-body {
   text-align: center;
+}
+.firts-anim-enter-active,
+.firts-anim-leave-active {
+  transition: opacity .3s;
+}
+.firts-anim-enter, .firts-anim-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
 }
 </style>
