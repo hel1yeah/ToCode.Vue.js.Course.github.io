@@ -49,12 +49,14 @@
                 <label>Имя</label>
                 <input
                   type="text"
+                  required
                   placeholder="введите ваш имя"
                   v-model="modalSecond.name"
                 />
                 <label>Емейл</label>
                 <input
                   type="text"
+                  required
                   placeholder="введите ваш емейл"
                   v-model="modalSecond.email"
                 />
@@ -65,9 +67,6 @@
           <!-- /second modal -->
           <!-- modalValidate -->
           <modalValidate v-show="modalValidate" @closeModal="closeModal">
-
-            
-
           </modalValidate>
 
 
@@ -120,4 +119,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 </style>
