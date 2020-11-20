@@ -4,18 +4,26 @@
       <section>
         <div class="container">
           <div class="modal__buttons">
-            <!-- first modal -->
+            <!-- first modal button -->
             <button class="btn btnPrimary" @click="modalFirst = !modalFirst">
               Первое Модальное окно
             </button>
-            <!-- second modal -->
+            <!-- second modal  button-->
             <button
               class="btn btnPrimary"
               @click="modalSecond.show = !modalSecond.show"
             >
               Модальное окно с Формами
             </button>
+            <!--validate  modal button -->
+            <button
+              class="btn btnPrimary"
+              @click="modalValidate = !modalValidate"
+            >
+              Окно с Валидными формами
+            </button>
           </div>
+          
           <!-- first modal -->
           <modals
             title="Тайт первого модального окна "
@@ -41,12 +49,14 @@
                 <label>Имя</label>
                 <input
                   type="text"
+                  required
                   placeholder="введите ваш имя"
                   v-model="modalSecond.name"
                 />
                 <label>Емейл</label>
                 <input
                   type="text"
+                  required
                   placeholder="введите ваш емейл"
                   v-model="modalSecond.email"
                 />
@@ -55,6 +65,13 @@
             </div>
           </modals>
           <!-- /second modal -->
+          <!-- modalValidate -->
+          <modalValidate v-show="modalValidate" @closeModal="closeModal">
+          </modalValidate>
+
+
+          <!-- /modalValidate -->
+
         </div>
       </section>
     </div>
@@ -62,10 +79,12 @@
 </template>
 
 <script>
-import modals from "@/components/Modal.vue";
+import modals from "@/components/UI/Modal.vue";
+import modalValidate from "@/components/ModalValidate.vue";
 export default {
   components: {
     modals,
+    modalValidate,
   },
   data() {
     return {
@@ -75,12 +94,14 @@ export default {
         name: "",
         email: "",
       },
+      modalValidate: false,
     };
   },
   methods: {
     closeModal(event) {
       this.modalFirst = false;
       this.modalSecond.show = false;
+      this.modalValidate = false;
     },
     submintSecondForm(){
 
@@ -98,4 +119,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 </style>
