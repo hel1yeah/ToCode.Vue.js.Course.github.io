@@ -34,15 +34,36 @@
 
         <div class="form-item" :class="{ errorInput: $v.password.$error }">
           <label>Введите пароль </label>
-          <p class="errorText" v-if="!$v.password.required" > Пороль обязательный </p>
-          <p class="errorText" v-if="!$v.password.minLength"> Пароль не может быть короче {{ $v.password.$params.minLength.min }} знаков</p>
-          <input placeholder="Ваш пароль" v-model.trim="$v.password.$model" />
-          <label >Повторите пароль </label>
-          <p class="errorText" v-if="!$v.repeatPassword.required" > Повторить пароль обязательно </p>
-          <input placeholder="Повторите пароль" v-model.trim="$v.repeatPassword.$model"/>
-          <p class="errorText" v-if="!$v.repeatPassword.sameAsPassword">Пароли не идентичны</p>
+          <p class="errorText" v-if="!$v.password.required">
+            Пороль обязательный
+          </p>
+          <p class="errorText" v-if="!$v.password.minLength">
+            Пароль не может быть короче
+            {{ $v.password.$params.minLength.min }} знаков
+          </p>
+          <input
+            placeholder="Ваш пароль"
+            v-model.trim="$v.password.$model"
+            :class="{ error: $v.password.$error }"
+          />
+          <div
+            class="form-group"
+            :class="{ 'errorInput': $v.repeatPassword.$error }"
+          >
+            <label>Повторите пароль </label>
+            <p class="errorText" v-if="!$v.repeatPassword.required">
+              Повторить пароль обязательно
+            </p>
+            <input
+              placeholder="Повторите пароль"
+              v-model.trim="$v.repeatPassword.$model"
+              :class="{ error: $v.repeatPassword.$error }"
+            />
+            <p class="errorText" v-if="!$v.repeatPassword.sameAsPassword">
+              Пароли не идентичны
+            </p>
+          </div>
         </div>
-
 
         <button class="btn btnPrimary">Отправить</button>
       </form>
@@ -117,7 +138,7 @@ export default {
   font-size: 14px;
 }
 .form-item {
-  &.errorInput .errorText {
+  & .errorText {
     display: block;
   }
   & .error {
