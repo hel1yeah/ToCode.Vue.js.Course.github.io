@@ -4,12 +4,8 @@
       <form @submit.prevent="onSubmit">
         <div class="form-item" :class="{ errorInput: $v.name.$error }">
           <label>Имя</label>
-          <p class="errorText" v-if="!$v.name.required">
-            Oбязательно укажите имя
-          </p>
-          <p class="errorText" v-if="!$v.name.minLength">
-            Имя не может быть короче {{ $v.name.$params.minLength.min }}-х букв!
-          </p>
+          <p class="errorText" v-if="!$v.name.required"> Oбязательно укажите имя </p>
+          <p class="errorText" v-if="!$v.name.minLength"> Имя не может быть короче {{ $v.name.$params.minLength.min }}-х букв! </p>
           <input
             placeholder="введите ваш имя"
             v-model="name"
@@ -18,15 +14,18 @@
           />
         </div>
 
-        <div class="form-item" :class="{ errorInput: $v.name.$error }">
+        <div class="form-item" :class="{ errorInput: $v.email.$error }">
           <label>Емейл</label>
-          <p class="errorText" v-if="!$v.email.required">Обязательно укажите емейл</p>
+          <p class="errorText" v-if="!$v.email.required">
+            Обязательно укажите емейл
+          </p>
           <p class="errorText" v-if="!$v.email.email">Не корректный емейл</p>
-          <input placeholder="введите ваш емейл" 
-          v-model="email"
-          :class="{ error: $v.email.$error }"
-          @change="$v.email.$touch()"
-           />
+          <input
+            placeholder="введите ваш емейл"
+            v-model="email"
+            :class="{ error: $v.email.$error }"
+            @change="$v.email.$touch()"
+          />
         </div>
 
         <button class="btn btnPrimary">Отправить</button>
@@ -63,18 +62,20 @@ export default {
     closeModal() {
       this.$emit("closeModal", event);
     },
-    onSubmit(){
-      this.$v.$touch()
+    onSubmit() {
+      this.$v.$touch();
       if (!this.$v.$invalid) {
         const user = {
           name: this.name,
-          email: this.email
+          email: this.email,
         };
         console.log(user);
-        this.name = '';
-        this.email = '';
+        this.name = "";
+        this.email = "";
+        this.$v.$reset();
+        this.closeModal();
       }
-    }
+    },
   },
 };
 </script>
@@ -90,9 +91,8 @@ export default {
   &.errorInput .errorText {
     display: block;
   }
-  & .error{
-  border: 1px solid firebrick;
+  & .error {
+    border: 1px solid firebrick;
+  }
 }
-}
-
 </style>
