@@ -8,6 +8,7 @@ Vue.use(VueRouter);
 import Home from "@/pages/Home";
 import Example from "@/pages/Example";
 import Contact from "@/pages/Contact";
+import NotFound from "@/pages/404";
 
 const routes = [
   {
@@ -24,7 +25,14 @@ const routes = [
     path: "/contact",
     name: "contact",
     component: Contact
-  }
+  },
+  
+  {
+    path: "*",
+    name: "notFound",
+    component: NotFound
+  },
+  
 ];
 
 const router = new VueRouter({
