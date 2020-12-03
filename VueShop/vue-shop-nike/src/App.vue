@@ -63,8 +63,8 @@ export default {
   width: 115px;
 }
 .logo {
-  &-picture {
-  }
+//  &-picture {
+//  }
   &-img {
     height: 30px;
     width: 30px;
