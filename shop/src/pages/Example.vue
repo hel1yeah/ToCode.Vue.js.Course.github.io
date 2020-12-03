@@ -12,7 +12,13 @@
 </template>
 
 <script>
+
+import example from '../store/example'
+
 export default {
+  modules: {
+    example,
+  },
   data() {
     return {
       message: null,
@@ -26,7 +32,7 @@ export default {
   methods: {
     setMessage(){
       this.$store.dispatch('setMessage', this.message)
-    }
+    },
   },
 }
 </script>

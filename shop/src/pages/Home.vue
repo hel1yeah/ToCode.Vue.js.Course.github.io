@@ -3,7 +3,7 @@
     <section>
       <div class="container">
         <h1>Home Page</h1>
-        <p>{{ message }}</p>
+      <p> message : {{getMessage}} </p>
 
         
       </div>
@@ -12,9 +12,14 @@
 </template>
 
 <script>
+  import example from '../store/example'
+
 export default {
-  computed: {
-    message(){
+  modules: {
+    example,
+  },
+    computed: {
+    getMessage(){
       return this.$store.getters.getMessage;
     }
   },
