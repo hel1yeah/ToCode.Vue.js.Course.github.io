@@ -6,7 +6,7 @@ Vue.use(VueRouter);
 
 // pages
 import Home from "@/components/Home";
-import Example from "@/components/Example";
+import Shop from "@/components/Shop";
 import Contact from "@/components/Contact";
 import NotFound from "@/components/404";
 
@@ -19,9 +19,9 @@ const router = new VueRouter({
       component: Home
     },
     {
-      path: "/example",
-      name: "example",
-      component: Example
+      path: "/shop",
+      name: "shop",
+      component: Shop
     },
     {
       path: "/contact",

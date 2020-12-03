@@ -12,11 +12,11 @@
 </template>
 
 <script>
-  import example from '../store/example'
+  import shop from '../components/Shop'
 
 export default {
   modules: {
-    example,
+    shop,
   },
     computed: {
     getMessage(){

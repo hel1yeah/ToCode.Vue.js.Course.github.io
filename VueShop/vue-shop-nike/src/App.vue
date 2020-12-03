@@ -5,7 +5,13 @@
       <div class="navbar">
         <div class="container">
           <div class="navbar-content">
-            <div class="logo">VUE-CLI</div>
+            <div class="logo-wrapper">
+              <div class="logo">VUE-CLI</div>
+              <picture class="logo-picture">
+                <img src="./assets/logo.png" alt="Vue Logo" class="logo-img" />
+              </picture>
+            </div>
+
             <ul class="navbar-list">
               <li class="navbar-item" v-for="link in links" :key="link.title">
                 <router-link
@@ -36,11 +42,11 @@ export default {
     return {
       links: [
         { title: "Home", url: "/" },
-        { title: "Example", url: "/example" },
-        { title: "Contact", url: "/contact" }
-      ]
+        { title: "Shop", url: "/shop" },
+        { title: "Contact", url: "/contact" },
+      ],
     };
-  }
+  },
 };
 </script>
 
@@ -48,6 +54,20 @@ export default {
 .navbar-link {
   &.router-link-exact-active {
     color: #49bc8a;
+  }
+}
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 115px;
+}
+.logo {
+  &-picture {
+  }
+  &-img {
+    height: 30px;
+    width: 30px;
   }
 }
 </style>

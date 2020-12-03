@@ -3,13 +3,13 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-import example from './example';
+import shop from './shop';
 
 export default new Vuex.Store({
   strict: process.env.NODE_ENV !== 'production',
 
   modules: {
-    example,
+    shop,
   }
  
 });

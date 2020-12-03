@@ -2,7 +2,7 @@
   <div class="wrapper-content wrapper-content--fixed">
       <section>
         <div class="container">
-          <h1>Example</h1>
+          <h1>Shop</h1>
           <p> message : {{getMessage}} </p>
           <input type="text" v-model="message">
           <button @click="setMessage">set message</button>
@@ -13,11 +13,11 @@
 
 <script>
 
-import example from '../store/example'
+import shop from '../store/shop'
 
 export default {
   modules: {
-    example,
+    shop,
   },
   data() {
     return {
