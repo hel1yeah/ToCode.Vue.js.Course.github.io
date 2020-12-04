@@ -7,6 +7,7 @@ Vue.use(VueRouter);
 // pages
 import Home from "@/pages/Home";
 import Shop from "@/pages/Shop";
+import Product from "@/pages/Product";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/404";
 
@@ -22,6 +23,11 @@ const router = new VueRouter({
       path: "/shop",
       name: "shop",
       component: Shop
+    },
+    {
+      path: "/shop/nike:id",
+      name: "product",
+      component: Product
     },
     {
       path: "/contact",

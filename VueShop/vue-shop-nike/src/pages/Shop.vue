@@ -4,12 +4,14 @@
       <div class="container">
         <h1>Shop</h1>
         <div class="shopItem__wrapper">
+
           <shopItem
             v-for="product in shopList"
             :key="product.id"
             :product="product"
           >
           </shopItem>
+          
         </div>
       </div>
     </section>
@@ -29,7 +31,7 @@ export default {
   },
   created() {
     this.shopList = this.$store.getters.getShopList;
-    console.log(this.shopList);
+    // console.log(this.shopList);
   },
   computed: {},
   methods: {},

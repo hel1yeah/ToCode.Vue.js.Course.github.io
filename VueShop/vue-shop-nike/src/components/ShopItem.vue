@@ -1,10 +1,10 @@
 <template>
-
   <div class="shopItem">
-    <img :src="product.img" :alt="product.title">
-    <p>{{product.title}}</p>
+    <router-link :to="/shop/ + 'nike' + product.id" class="link">
+      <img :src="product.img" :alt="product.title" />
+      <h1>{{ product.title }}</h1>
+    </router-link>
   </div>
-
 </template>
 
 <script>
@@ -13,26 +13,29 @@ export default {
     product: {
       type: Object,
       required: true,
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" >
-.shopItem__wrapper{
+.shopItem__wrapper {
   display: flex;
   text-align: center;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
-.shopItem{
-  max-width: 48%;
-  & img{
-    
+.shopItem {
+  max-width: 600px;
+  &:hover{
+    opacity:  .8;
   }
-  p{
+  & img {
+    width: 100%;
+  }
+  p {
     text-align: center;
-    
+
     font-size: 1.1rem;
   }
 }
