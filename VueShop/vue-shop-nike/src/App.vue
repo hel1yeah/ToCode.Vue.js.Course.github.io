@@ -5,11 +5,14 @@
       <div class="navbar">
         <div class="container">
           <div class="navbar-content">
-            <div class="logo-wrapper">
+            <div>
+              <router-link class="logo-wrapper" to="/">
               <div class="logo">VUE-CLI</div>
               <picture class="logo-picture">
                 <img src="./assets/logo.png" alt="Vue Logo" class="logo-img" />
               </picture>
+              </router-link>
+              
             </div>
 
             <ul class="navbar-list">
@@ -61,10 +64,11 @@ export default {
   align-items: center;
   justify-content: space-between;
   width: 115px;
+  color: black;
 }
 .logo {
-//  &-picture {
-//  }
+  //  &-picture {
+  //  }
   &-img {
     height: 30px;
     width: 30px;
