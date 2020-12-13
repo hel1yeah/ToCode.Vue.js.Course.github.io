@@ -54,11 +54,12 @@
 import axios from "axios";
 import notify from "@/components/Notify.vue";
 // UI
-import preloader from '@/components/UI/Preloader.vue'
+import preloader from "@/components/UI/Preloader.vue";
 
 export default {
   components: {
-    notify,preloader,
+    notify,
+    preloader,
   },
   data() {
     return {
@@ -70,9 +71,9 @@ export default {
     this.getLazyNotify();
   },
   computed: {
-    messages(){
-      return this.$store.getters.getMessage
-    }
+    messages() {
+      return this.$store.getters.getMessageMain;
+    },
   },
   created() {},
   methods: {
@@ -80,20 +81,28 @@ export default {
       this.loading = true;
       setTimeout(() => {
         this.getNotify();
-      }, 1800);
+      }, 800);
     },
     getNotify() {
       this.loading = true;
       axios
         .get("https://tocode.ru/static/c/vue-pro/notifyApi.php")
         .then((response) => {
-          let res = response.data.notify;
-          this.$store.dispatch('setMessage', res)
-          // this.messages = res;
-          console.log(res);
+          let res = response.data.notify,
+            messages = [],
+            messageMain = [];
+
+          // filters
+          for (let i = 0; i < res.length; i++) {
+            if (res[i].main) messageMain.push(res[i]);
+            else messages.push(res[i]);
+          }
+          console.log(messageMain);
+          this.$store.dispatch("setMessage", messages);
+          this.$store.dispatch("setMessageMain", messageMain);
         })
         .catch((error) => {
-          console.log(error);
+          this.error = true;
         })
         .finally(() => (this.loading = false));
     },
