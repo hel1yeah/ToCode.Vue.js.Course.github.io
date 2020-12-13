@@ -112,4 +112,7 @@ export default {
   border-radius: 60px;
   margin: 0 20px;
 }
+td{
+  width: 33%;
+}
 </style>
