@@ -7,7 +7,9 @@
         </td>
       </tr>
     </transition-group>
-    <button class="btn btnPrimary" @click="loadMore">ДопІнфа</button>
+    <button class="btn btnPrimary" @click="loadMore" :disabled="maxLength ===0" :class="{btnDisabled: maxLength ===0}">
+      ДопІнфа
+    </button>
   </table>
 </template>
 
@@ -19,12 +21,16 @@ export default {
       required: true,
     },
   },
+  computed: {
+    maxLength() {
+      return this.$store.getters.getMessageFilter.length;
+    },
+  },
   methods: {
     loadMore() {
-      this.$store.dispatch("loadMessages")
-        .catch((err) => {
-          console.log(err);
-        });
+      this.$store.dispatch("loadMessages").catch((err) => {
+        console.log(err);
+      });
     },
   },
 };
