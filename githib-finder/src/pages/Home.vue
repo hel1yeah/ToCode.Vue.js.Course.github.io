@@ -16,7 +16,7 @@
         <!-- erorrs -->
         <errorTemp 
         v-if="error"
-        :tst="tst"
+        :test1="test1"
         >
           
         </errorTemp>
@@ -54,7 +54,7 @@ export default {
       // repos:[],
       repos: null,
       error: null,
-      tst: 'red'
+      test1: 'red',
     };
   },
   methods: {

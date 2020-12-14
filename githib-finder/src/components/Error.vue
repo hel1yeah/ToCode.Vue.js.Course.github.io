@@ -2,11 +2,12 @@
   <div class="error__wrapper">
     <div class="error">
       
-      <p> {{ tst }} </p>
+      <p> {{ test1 }} </p>
     </div>
   </div>
 </template>
 <script>
+import home from '@/pages/Home.vue'
 export default {
   data() {
     return {
@@ -15,8 +16,9 @@ export default {
           type: String,
           required: true,
         },
-        tst: {
+        test1: {
           type: String,
+          required: true,
         },
       },
     };
