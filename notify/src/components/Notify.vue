@@ -7,7 +7,7 @@
         </td>
       </tr>
     </transition-group>
-    <button class="btn btnPrimary" @click="loadMore" :disabled="maxLength ===0" :class="{btnDisabled: maxLength ===0}">
+    <button class="btn btnPrimary" @click="loadMore" :disabled="maxLength === 0" :class="{btnDisabled: maxLength ===0}">
       ДопІнфа
     </button>
   </table>

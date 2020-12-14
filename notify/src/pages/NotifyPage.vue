@@ -36,7 +36,7 @@
 
             <!-- erorr -->
             <div class="error" v-if="error">
-              <p>{{ error }}</p>
+              <p >{{ error }}</p>
             </div>
 
             <!-- notify -->
@@ -78,6 +78,7 @@ export default {
   created() {},
   methods: {
     getLazyNotify() {
+      this.error = null
       this.loading = true;
       setTimeout(() => {
         this.getNotify();
@@ -102,7 +103,7 @@ export default {
           this.$store.dispatch("setMessageMain", messageMain);
         })
         .catch((error) => {
-          this.error = true;
+          this.error = "Failed to load resource: net::ERR_FAILED";
         })
         .finally(() => (this.loading = false));
     },
@@ -134,6 +135,7 @@ export default {
   align-items: center;
   flex-direction: column;
   min-height: 300px;
+  justify-content: center;
 }
 
 .notify__title {
@@ -143,5 +145,12 @@ export default {
   p {
     font-size: 24px;
   }
+}
+
+.error{
+  color: red;
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: bold;
 }
 </style>
