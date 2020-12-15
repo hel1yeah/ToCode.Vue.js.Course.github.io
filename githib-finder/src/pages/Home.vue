@@ -3,10 +3,6 @@
     <section>
       <div class="container">
         <!-- search -->
-        <p>
-          Текущая сортировка: {{ currentSort }}, Тип сортировка:
-          {{ currentSortDir }},
-        </p>
         <search
           :value="search"
           placeholder="Type Username..."
@@ -66,7 +62,7 @@ export default {
     },
     getRepos() {
       axios
-        .get(`https://api.github.com/users/red/repos`)
+        .get(`https://api.github.com/users/${this.search}/repos`)
         .then((respons) => {
           this.error = null;
           this.repos = respons.data;
@@ -76,7 +72,6 @@ export default {
           this.error = "(Not Found)";
         })
         .finally(() => (this.loading = false));
-      // console.log(`get user ${this.search}`);
     },
   },
   computed: {
