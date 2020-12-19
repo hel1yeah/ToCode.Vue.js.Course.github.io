@@ -4,12 +4,11 @@
   </div>
 </template>
 
+
+
+
 <script>
-import post from "./posts/index";
 export default {
-  components: {
-    post,
-  },
   data() {
     return {};
   },

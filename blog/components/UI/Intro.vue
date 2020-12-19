@@ -19,7 +19,7 @@ export default {
 <style lang="scss">
 .intro {
   width: 100%;
-  margin: 30px 0;
+  margin: 20px 0;
   text-align: center;
   color: white;
   background-color: #892fdd;

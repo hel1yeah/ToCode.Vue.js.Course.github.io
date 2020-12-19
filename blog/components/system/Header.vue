@@ -3,7 +3,7 @@
     <div class="navbar">
       <div class="container">
         <div class="navbar-content">
-          <div class="logo">Blog Nuxt</div>
+          <nuxt-link class="logo" to="/">Blog Nuxt</nuxt-link>
           <ul class="navbar-list">
             <li class="navbar-item" v-for="link in links" :key="link.title">
               <nuxt-link
@@ -42,9 +42,8 @@ export default {
 
 <style lang="scss">
 .navbar-link {
-  &.nuxt-link-exact-active{
+  &.nuxt-link-exact-active {
     color: #892fdd;
   }
 }
-  
 </style>
