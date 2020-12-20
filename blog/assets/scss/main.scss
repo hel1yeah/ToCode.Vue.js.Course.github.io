@@ -115,6 +115,7 @@ section,
   position: relative;
   max-width: $desktopWidth;
   margin: 0 auto;
+  padding: 0 15px;
 
   @media screen and (max-width: $smDesktopWidth) {
     max-width: $tableWidth;

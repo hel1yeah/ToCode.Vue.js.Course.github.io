@@ -50,6 +50,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
   }
   &__item{
 
