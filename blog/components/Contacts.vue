@@ -11,7 +11,7 @@
         <textarea v-model="user.text" id="text"></textarea>
         <!-- buttons -->
         <div class="controls">
-          <button class="btn btnPrimary">Запостить</button>
+          <AppButton class="btnWhite"> test </AppButton>
         </div>
       </form>
     </div>
@@ -19,7 +19,11 @@
 </template>
 
 <script>
+import AppButton from '@/components/UI/Controls/Button'
 export default {
+  components:{
+      AppButton,
+    },
   data() {
     return {
       user: {
