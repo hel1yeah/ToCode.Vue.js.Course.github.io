@@ -47,15 +47,15 @@ export default {
   padding: 10px;
   background-color: #ffffff;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-  &__inner {
-  }
+//  &__inner {
+//  }
   &__list {
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
   }
-  &__item {
-  }
+//  &__item {
+//  }
 }
 </style>
