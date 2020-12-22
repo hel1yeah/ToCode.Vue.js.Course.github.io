@@ -1,6 +1,5 @@
 <template>
   <div class="wrapper">
-
     <header>
       <div class="navbar">
         <div class="container">
@@ -19,20 +18,27 @@
     <router-view></router-view>
 
     <!-- <footer></footer> -->
-
   </div>
 </template>
 
 <script>
+import search from "@/components/Search.vue";
+import errorTemp from "@/components/Error.vue";
+import home from "@/pages/Home.vue";
+import axios from "axios";
 export default {
-  data () {
+  components: {
+    search,
+    errorTemp,
+    home,
+    axios,
+  },
+  data() {
     return {
-      links: [
-        { title: 'Home', url: '/' }
-      ]
-    }
-  }
-}
+      links: [{ title: "Home", url: "/" }],
+    };
+  },
+};
 </script>
 
 <style lang="scss">

@@ -12,7 +12,15 @@
         <!-- button -->
         <button class="btn btnPrimary" @click="getRepos">Search</button>
         <!-- erorrs -->
+<<<<<<< Updated upstream
         <errorTemp v-if="error" :error="error"> </errorTemp>
+=======
+        <errorTemp 
+        v-if="error"
+        >
+          
+        </errorTemp>
+>>>>>>> Stashed changes
         <!-- wrapper -->
         <div class="repos__wrapper" v-if="repos">
           <div class="sort">
