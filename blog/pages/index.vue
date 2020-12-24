@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper-content wrapper-content--fixed">
     <Promo />
-    <Intro title="My lasts posts:" />
+    <Intro title="Мои последние посты" />
     <postsList :posts="posts"></postsList>
     <contacts></contacts>
   </div>

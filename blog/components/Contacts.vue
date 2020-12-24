@@ -1,7 +1,10 @@
 <template>
   <section class="contact">
     <div class="container">
-      <h2 class="title">Contact</h2>
+      <h2 class="title">Форма связи</h2>
+      <!-- message -->
+      <Message v-if="message" :message="message"></Message>
+      <!-- form -->
       <form @submit.prevent="onSubmit" class="contact__form">
         <!-- input -->
         <AppInput v-model="user.name"  >Ваше имя:</AppInput>
@@ -17,6 +20,7 @@
 </template>
 
 <script>
+import Message from '@/components/UI/Message'
 import AppButton from '@/components/UI/Controls/Button'
 import AppInput from '@/components/UI/Controls/Input'
 import AppTextArea from '@/components/UI/Controls/TextArea'
@@ -25,9 +29,11 @@ export default {
       AppButton,
       AppInput,
       AppTextArea,
+      Message,
     },
   data() {
     return {
+      message: null,
       user: {
         name: "",
         email: "",
@@ -37,7 +43,13 @@ export default {
   },
   methods: {
     onSubmit() {
+      this.message = 'Submited';
       console.log(this.user);
+
+      // reset 
+      this.user.name= '';
+      this.user.email= '';
+      this.user.text= '';
     },
   },
 };
