@@ -27,7 +27,7 @@ export default {
     return {
       links: [
         {
-          title: "Home",
+          title: "Blog",
           url: "/",
         },
         {
@@ -41,7 +41,11 @@ export default {
 </script>
 
 <style lang="scss">
+.logo{
+    color: #000;
+  }
 .navbar-link {
+  
   &.nuxt-link-exact-active {
     color: #892fdd;
   }

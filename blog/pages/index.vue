@@ -2,7 +2,7 @@
   <div class="wrapper-content wrapper-content--fixed">
     <Promo />
     <Intro title="Мои последние посты" />
-    <postsList :posts="posts"></postsList>
+    <PostsList :posts="posts"></PostsList>
     <contacts></contacts>
   </div>
 </template>
@@ -12,14 +12,10 @@
 
 <script>
 import promo from "@/components/Promo.vue";
-import intro from "@/components/UI/Intro.vue";
-import postsList from "@/components/Blog/PostsList.vue";
 import contacts from "@/components/Contacts.vue";
 export default {
   components: {
     promo,
-    intro,
-    postsList,
     contacts,
   },
   data() {

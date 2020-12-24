@@ -9,7 +9,7 @@
           Напоивший прямо рекламных там своих большой семь послушавшись города.
           Бросил его переписали напоивший имени.
         </p>
-        <intro title="Intro Title"></intro>
+        <Intro title="Intro Title"></Intro>
         <p>
           Далеко-далеко за словесными горами в стране гласных и согласных живут
           рыбные тексты. Маленькая ты своих буквенных всемогущая продолжил.
@@ -34,14 +34,7 @@
   </div>
 </template>
 
-<script>
-import intro from "@/components/UI/Intro.vue";
-export default {
-  components: {
-    intro,
-  },
-};
-</script>
+
 
 <style lang="scss">
 .about {
