@@ -2,8 +2,9 @@
   <div class="wrapper">
     <Header />
     <div class="wrapper-content wrapper-content--fixed">
-      <Intro title="Страниа Администратора">
-        <nuxt-link to="/admin" class="link linkWhite">Flvby</nuxt-link>
+      <Intro title="Страница Администратора">
+        <nuxt-link to="/admin" class="link linkWhite">Админка</nuxt-link>
+        <nuxt-link to="/admin/new-post" class="link linkWhite">Новый пост</nuxt-link>
       </Intro>
       <Nuxt />
     </div>
