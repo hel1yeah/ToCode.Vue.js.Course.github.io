@@ -13,6 +13,7 @@ export default {
   methods: {
     onSave(post){
       console.log('save');
+      console.log(post);
     }
   },
 }

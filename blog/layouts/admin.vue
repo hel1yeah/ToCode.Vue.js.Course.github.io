@@ -5,6 +5,7 @@
       <Intro title="Страница Администратора">
         <nuxt-link to="/admin" class="link linkWhite">Админка</nuxt-link>
         <nuxt-link to="/admin/new-post" class="link linkWhite">Новый пост</nuxt-link>
+        <nuxt-link to="/admin/comments" class="link linkWhite">Коментарии</nuxt-link>
       </Intro>
       <Nuxt />
     </div>
