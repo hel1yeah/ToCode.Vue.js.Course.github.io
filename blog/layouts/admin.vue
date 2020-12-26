@@ -21,5 +21,8 @@ export default {
     Header,
     Footer,
   },
+  middleware:
+    ['auth']
+  ,
 };
 </script>

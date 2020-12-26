@@ -18,3 +18,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  .wrapper{
+    position: relative;
+    padding-bottom: 50px;
+  }
+</style>
