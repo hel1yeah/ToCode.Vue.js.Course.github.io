@@ -38,7 +38,6 @@ export default {
   methods: {
     onSave() {
       this.$emit("save", this.post);
-      console.log(this.postEdit);
     },
     cancel() {
       this.$router.push("/admin/");
