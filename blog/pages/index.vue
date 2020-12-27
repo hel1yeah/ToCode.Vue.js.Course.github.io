@@ -7,9 +7,6 @@
   </div>
 </template>
 
-
-
-
 <script>
 import promo from "@/components/Promo.vue";
 import contacts from "@/components/Contacts.vue";

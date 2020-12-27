@@ -12,10 +12,9 @@ export default {
   layout: "admin",
   methods: {
     onSave(post) {
-      this.$store.dispatch("addPost", post)
-      .then(() => {
-        this.$router.push("/admin");
-      });
+      this.$store.dispatch('addPost', post).then(()=>{
+        this.$router.push('/admin')
+      })
     },
   },
 };
