@@ -31,7 +31,7 @@ export default {
 
 <style lang="scss">
 .post__preview {
-  max-width: 33.333%;
+  width: 33.333%;
   padding: 16px;
   margin-bottom: 20px;
   img {

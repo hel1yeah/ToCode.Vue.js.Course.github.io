@@ -11,6 +11,7 @@
           <AppButton @click="onSave"> Сохранить пост </AppButton>
         </div>
       </form>
+      {{post}}
     </div>
   </section>
 </template>
@@ -32,6 +33,7 @@ export default {
             descr: "",
             img: "",
             content: "",
+            
           },
     };
   },

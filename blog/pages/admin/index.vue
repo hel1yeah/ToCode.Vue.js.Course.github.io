@@ -37,7 +37,6 @@ export default {
   // },
   computed: {
     postsLoadet() {
-      console.log(this.$store.getters.getPostsLoaded);
       return this.$store.getters.getPostsLoaded;
     },
   },

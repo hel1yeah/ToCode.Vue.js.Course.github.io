@@ -9,26 +9,22 @@ export const mutations = {
   },
   addPost(state, post) {
     state.postsLoaded.push(post);
-    console.log(post);
   }
 };
 export const actions = {
-  nuxtServerInit({ commit }, context) {
-    return axios
-    .get("https://blog2-f32e2-default-rtdb.firebaseio.com/posts.json")
-    .then(res => {
-      console.log(res);
-      const postsArray = [];
-      for (const item in res.data) {
-        if (Object.hasOwnProperty.call( res.data, item)) {
-          postsArray.push({...res.data[item], id: item})
-          commit('setPosts', postsArray)
-          console.log(postsArray);
+  nuxtServerInit ({commit}, contex) {
+    return axios.get('https://blog2-f32e2-default-rtdb.firebaseio.com/posts.json')
+      .then(res => {
+        const postsArray = []
+        for (let key in res.data) {
+          postsArray.push( { ...res.data[key], id: key } )
+          
         }
-      }
-      // commit("addPost", { ...post, id: res.data.name });
-    })
-    .catch(e => console.log(e));
+        // Res
+        console.log({ postsArray});
+        commit('setPosts', postsArray)
+      })
+      .catch(e => console.log(e))
   },
   addPost({ commit }, post) {
     return axios

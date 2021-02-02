@@ -19,7 +19,7 @@ export default {
   //   return new Promise((resolve, reject) => {
   //     setTimeout(() => {
   //       resolve({
-  //         posts : [
+  //         postsLoadet : [
   //             {
   //               id: 1,
   //               title: "1 post",
@@ -37,16 +37,12 @@ export default {
   //     context.error(e)
   //   })
   // },
-  data() {
-    return {
-      posts: [],
-    };
+
+  computed: {
+    postsLoadet() {
+      return this.$store.getters.getPostsLoaded;
+    },
   },
-  computed:{
-    postsLoadet(){
-      return this.$store.getters.getPostsLoaded
-    }
-  }
 };
 </script>
 
