@@ -2,17 +2,18 @@
   <section class="new-post">
     <div class="container">
       <form @submit.prevent>
-        <AppInput v-model="post.title"> Заголовок </AppInput>
-        <AppInput v-model="post.descr"> Описание </AppInput>
-        <AppInput v-model="post.img"> Ссылка на картинку </AppInput>
-        <AppTextArea v-model="post.content"> Контент </AppTextArea>
+        <AppInput v-model="post.title"> Title: </AppInput>
+        <AppInput v-model="post.descr"> Descr: </AppInput>
+        <AppInput v-model="post.img"> Img Link: </AppInput>
+        <AppTextArea v-model="post.content"> Content: </AppTextArea>
+        <!-- buttons -->
         <div class="controls">
-          <AppButton class="btnDanger" @click="cancel"> Отмена </AppButton>
-          <AppButton @click="onSave"> Сохранить пост </AppButton>
+          <AppButton class="btnDanger" @click="cancel"> Cancel </AppButton>
+          <AppButton @click="onSubmit"> Save </AppButton>
         </div>
       </form>
-      {{post}}
     </div>
+    {{postEdit}}
   </section>
 </template>
 
@@ -24,28 +25,25 @@ export default {
       requreid: false
     }
   },
-  data() {
+  data () {
     return {
-      post: this.postEdit
-        ? { ...this.postEdit }
-        : {
-            title: "",
-            descr: "",
-            img: "",
-            content: "",
-            
-          },
-    };
+      post: this.postEdit ? { ...this.postEdit } : {
+        title: '',
+        descr: '',
+        img: '',
+        content: ''
+      }
+    }
   },
   methods: {
-    onSave() {
-      this.$emit("save", this.post);
+    onSubmit () {
+      this.$emit('submit', this.post)
     },
-    cancel() {
-      this.$router.push("/admin/");
-    },
-  },
-};
+    cancel () {
+      this.$router.push('/admin/')
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

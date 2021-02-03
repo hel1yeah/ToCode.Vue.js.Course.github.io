@@ -1,17 +1,16 @@
 <template>
-  <newPostFrom @save="onSave" :postEdit="post"></newPostFrom>
+  <newPostFrom
+    :postEdit="post"
+    @submit="onSubmit" />
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios'
 
-import newPostFrom from "@/components/Admin/NewPostFrom";
-
+import newPostFrom from '@/components/Admin/NewPostFrom.vue'
 export default {
-  components: {
-    newPostFrom,
-  },
-  layout: "admin",
+  components: { newPostFrom },
+  layout: 'admin',
   asyncData (contex) {
     return axios.get(`https://blog-nuxt-b3cce.firebaseio.com/posts/${contex.params.postId}.json`)
       .then(res => {
@@ -22,15 +21,13 @@ export default {
       .catch(e => contex.error(e))
   },
   methods: {
-    onSave(post) {
-      console.log("Post Editing");
-      console.log(post);
-    },
-  },
-  computed: {
-    postsLoadet() {
-      return this.$store.getters.getPostsLoaded;
-    },
-  },
-};
+    onSubmit (post) {
+      console.log('Post Editing!')
+      this.$store.dispatch('editPost', post)
+        .then(()=>{
+          this.$router.push('/admin')
+        })
+    }
+  }
+}
 </script>
