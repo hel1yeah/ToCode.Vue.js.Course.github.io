@@ -98,7 +98,7 @@ export default {
     };
   },
   methods: {
-    closeModal(event) {
+    closeModal() {
       this.modalFirst = false;
       this.modalSecond.show = false;
       this.modalValidate = false;

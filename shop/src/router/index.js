@@ -5,10 +5,10 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 // pages
-import Home from "@/pages/components/Home";
-import Example from "@/pages/components/Example";
-import Contact from "@/pages/components/Contact";
-import NotFound from "@/pages/components/404";
+import Home from "../pages/Home.vue";
+import Example from "../pages/Example";
+import Contact from "../pages/Contact";
+import NotFound from "../pages/404";
 
 const router = new VueRouter({
   // mode: "history",

@@ -25,12 +25,10 @@ export const actions = {
   nuxtServerInit ({commit}, contex) {
     return axios.get('https://blog2-f32e2-default-rtdb.firebaseio.com/posts.json')
       .then(res => {
-
         const postsArray = []
         for (let key in res.data) {
           postsArray.push( { ...res.data[key], id: key } )
         }
-        // Res
         commit('setPosts', postsArray)
       })
       .catch(e => console.log(e))

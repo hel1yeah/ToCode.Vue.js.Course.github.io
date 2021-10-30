@@ -4,10 +4,10 @@
       <form @submit.prevent="onSubmit">
         <div class="form-item" :class="{ errorInput: $v.email.$error }">
           <label>Емейл</label>
-          <p class="errorText" v-if="!$v.email.required">
+          <p class="error-text" v-if="!$v.email.required">
             Обязательно укажите емейл
           </p>
-          <p class="errorText" v-if="!$v.email.email">Не корректный емейл</p>
+          <p class="error-text" v-if="!$v.email.email">Не корректный емейл</p>
           <input
             placeholder="введите ваш емейл"
             v-model="email"
@@ -18,10 +18,10 @@
 
         <div class="form-item" :class="{ errorInput: $v.name.$error }">
           <label>Имя</label>
-          <p class="errorText" v-if="!$v.name.required">
+          <p class="error-text" v-if="!$v.name.required">
             Oбязательно укажите имя
           </p>
-          <p class="errorText" v-if="!$v.name.minLength">
+          <p class="error-text" v-if="!$v.name.minLength">
             Имя не может быть короче {{ $v.name.$params.minLength.min }}-х букв!
           </p>
           <input
@@ -34,10 +34,10 @@
 
         <div class="form-item" :class="{ errorInput: $v.password.$error }">
           <label>Введите пароль </label>
-          <p class="errorText" v-if="!$v.password.required">
+          <p class="error-text" v-if="!$v.password.required">
             Пороль обязательный
           </p>
-          <p class="errorText" v-if="!$v.password.minLength">
+          <p class="error-text" v-if="!$v.password.minLength">
             Пароль не может быть короче
             {{ $v.password.$params.minLength.min }} знаков
           </p>
@@ -48,10 +48,10 @@
           />
           <div
             class="form-group"
-            :class="{ 'errorInput': $v.repeatPassword.$error }"
+            :class="{ errorInput: $v.repeatPassword.$error }"
           >
             <label>Повторите пароль </label>
-            <p class="errorText" v-if="!$v.repeatPassword.required">
+            <p class="error-text" v-if="!$v.repeatPassword.required">
               Повторить пароль обязательно
             </p>
             <input
@@ -59,7 +59,7 @@
               v-model.trim="$v.repeatPassword.$model"
               :class="{ error: $v.repeatPassword.$error }"
             />
-            <p class="errorText" v-if="!$v.repeatPassword.sameAsPassword">
+            <p class="error-text" v-if="!$v.repeatPassword.sameAsPassword">
               Пароли не идентичны
             </p>
           </div>
@@ -131,14 +131,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.form-item .errorText {
+.form-item .error-text {
   display: none;
   color: firebrick;
   margin-bottom: 8px;
   font-size: 14px;
 }
 .form-item {
-  & .errorText {
+  & .error-text {
     display: block;
   }
   & .error {
